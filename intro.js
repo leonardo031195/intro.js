@@ -964,7 +964,11 @@
 
     //add target element position style
     targetElement.element.className += ' introjs-showElement';
-
+    targetElement.element.onclick = function(){
+      self._introExitCallback.call(self);
+      _exitIntro.call(self, self._targetElement);
+    }
+    
     var currentElementPosition = _getPropValue(targetElement.element, 'position');
     if (currentElementPosition !== 'absolute' &&
         currentElementPosition !== 'relative') {
